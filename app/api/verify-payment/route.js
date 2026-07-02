@@ -6,7 +6,7 @@ export const runtime = 'nodejs'
 const PRODUCTS = {
   'lifetime': {
     label: 'Lifetime Access',
-    amount: 149,
+    amount: 99,
     links: [
         {
           label: 'Download Excel Habit Tracker',
