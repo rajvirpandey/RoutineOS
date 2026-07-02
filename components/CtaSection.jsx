@@ -10,6 +10,7 @@ export default function CtaSection({ onOpenModal }) {
           Download the habit tracker and start under 2 minutes.
         </p>
         <button
+         id="download-button-cta"
           onClick={onOpenModal}
           className="inline-block bg-gray-900 text-white font-semibold px-10 py-4 rounded-full text-base hover:bg-gray-700 transition-all shadow-xl hover:shadow-2xl hover:-translate-y-1 transform"
         >

@@ -1,7 +1,7 @@
 const PLANS = {
   '1month': 39,
   '6months': 99,
-  lifetime: 149,
+  lifetime: 99,
 }
 
 export async function POST(request) {

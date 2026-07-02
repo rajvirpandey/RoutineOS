@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Image from 'next/image'
+import ProductGallery from './ProductGallery'
 
 const slides = [
   {
@@ -36,10 +37,10 @@ export default function FeaturesSection() {
           This habit tracker makes progress visible
           <span className="block italic text-pink-500">so consistency becomes easier.</span>
         </h2>
-        <p className="text-gray-500 text-sm mb-12">Swipe to explore</p>
+        {/* <p className="text-gray-500 text-sm mb-12">Swipe to explore</p> */}
 
         {/* Tabs */}
-        <div className="flex flex-wrap justify-center gap-2 mb-8">
+        {/* <div className="flex flex-wrap justify-center gap-2 mb-8">
           {slides.map((s, i) => (
             <button
               key={i}
@@ -53,10 +54,10 @@ export default function FeaturesSection() {
               {s.label}
             </button>
           ))}
-        </div>
+        </div> */}
 
         {/* Image display */}
-        <div className="relative overflow-hidden rounded-2xl shadow-xl border border-gray-200 bg-white max-w-3xl mx-auto">
+        {/* <div className="relative overflow-hidden rounded-2xl shadow-xl border border-gray-200 bg-white max-w-3xl mx-auto">
           <div
             className="flex transition-transform duration-500 ease-in-out"
             style={{ transform: `translateX(-${active * 100}%)` }}
@@ -66,23 +67,23 @@ export default function FeaturesSection() {
                 <Image
                   src={s.src}
                   alt={s.label}
-                  width={900}
-                  height={600}
+                  width={400}
+                  height={200}
                   className="w-full object-cover"
                   unoptimized
                 />
               </div>
             ))}
           </div>
-        </div>
+        </div> */}
 
         {/* Description */}
-        <div className="mt-6 max-w-md mx-auto">
+        {/* <div className="mt-6 max-w-md mx-auto">
           <p className="text-gray-600 text-sm leading-relaxed">{slides[active].desc}</p>
-        </div>
+        </div> */}
 
         {/* Dots */}
-        <div className="flex justify-center gap-2 mt-4">
+        {/* <div className="flex justify-center gap-2 mt-4">
           {slides.map((_, i) => (
             <button
               key={i}
@@ -92,8 +93,10 @@ export default function FeaturesSection() {
               }`}
             />
           ))}
-        </div>
+        </div> */}
+        
       </div>
+      <ProductGallery/>
     </section>
   )
 }

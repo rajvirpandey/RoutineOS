@@ -2,34 +2,24 @@
 
 import { useState, useEffect } from 'react'
 
-const PLANS = [
-  {
-    id: '1month',
-    label: '1 Month Access',
-    price: 39,
-    description: 'Ultimate Habit Tracker (1 Month Access)',
-  },
-  {
-    id: '6months',
-    label: '6 Months Access',
-    price: 99,
-    description: 'Ultimate Habit Tracker (6 Months Access)',
-  },
-  {
-    id: 'lifetime',
-    label: 'Lifetime Access',
-    price: 149,
-    description:
-      'Ultimate Habit Tracker + Goal Planner + Weight Loss Tracker',
-    badge: 'BEST VALUE',
-    bonus: 'Includes Goal Planner + Weight Loss Tracker',
-  },
-]
+const plan = {
+  id: 'lifetime',
+  label: 'Lifetime Access',
+  price: 99,
+  oldPrice: 198,
+  discount: '50% OFF',
+  description: 'Ultimate Habit Tracker + Goal Planner + Weight Loss Tracker',
+  features: [
+    'Lifetime access to all features',
+    'All future updates included',
+    'Use on any device, anytime',
+    'No recurring payments',
+  ],
+}
 
 export default function PurchaseModal({ isOpen, onClose }) {
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [selectedPlan, setSelectedPlan] = useState('1month')
   const [loading, setLoading] = useState(false)
   const [errors, setErrors] = useState({})
 
@@ -49,8 +39,6 @@ export default function PurchaseModal({ isOpen, onClose }) {
       message,
     })
   }
-
-  const plan = PLANS.find((p) => p.id === selectedPlan)
 
   useEffect(() => {
     const script = document.createElement('script')
@@ -158,7 +146,7 @@ export default function PurchaseModal({ isOpen, onClose }) {
               result.paymentVerified
                 ? `${result.error}. Please contact support with Payment ID: ${paymentResponse.razorpay_payment_id}`
                 : result.error ||
-                    'We could not verify your payment.'
+                'We could not verify your payment.'
             )
 
             setLoading(false)
@@ -197,7 +185,7 @@ export default function PurchaseModal({ isOpen, onClose }) {
             'error',
             'Payment Failed',
             response.error.description ||
-              'Transaction could not be completed.'
+            'Transaction could not be completed.'
           )
         })
 
@@ -218,7 +206,7 @@ export default function PurchaseModal({ isOpen, onClose }) {
         'error',
         'Something Went Wrong',
         error.message ||
-          'Unexpected error occurred. Please try again.'
+        'Unexpected error occurred. Please try again.'
       )
 
       setLoading(false)
@@ -235,7 +223,7 @@ export default function PurchaseModal({ isOpen, onClose }) {
           onClick={onClose}
         />
 
-        <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md p-6 sm:p-8 max-h-[90vh] overflow-y-auto">
+        <div className="relative bg-white rounded-2xl shadow-2xl w-full max-w-[400px] p-2 sm:p-2 max-h-[90vh] overflow-y-auto">
           <button
             onClick={onClose}
             className="absolute top-4 right-4 text-gray-400 text-xl"
@@ -243,82 +231,126 @@ export default function PurchaseModal({ isOpen, onClose }) {
             ×
           </button>
 
-          <h2 className="text-2xl font-bold mb-1">
-            Complete Your Purchase
-          </h2>
-
-          <p className="text-sm text-gray-500 mb-6">
-            Files will be sent to this email.
-          </p>
-
-          <input
-            type="email"
-            placeholder="Email Address *"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-            className="w-full border rounded-xl px-4 py-3 mb-2"
-          />
-
-          {errors.email && (
-            <p className="text-red-500 text-xs mb-3">
-              {errors.email}
+          <div className="text-center mb-1 md:pt-4">
+            <h2 className="text-3xl font-bold tracking-tight">
+              Lifetime Access
+            </h2>
+            <p className="text-sm text-gray-500 mt-1">
+              One-time payment. Use forever.
             </p>
-          )}
-
-          <div className="flex border rounded-xl mb-2">
-            <span className="px-3 py-3 bg-gray-50">+91</span>
-
-            <input
-              type="tel"
-              maxLength={10}
-              value={phone}
-              onChange={(e) =>
-                setPhone(
-                  e.target.value.replace(/\D/g, '')
-                )
-              }
-              placeholder="Phone number"
-              className="flex-1 px-3"
-            />
           </div>
 
-          {errors.phone && (
-            <p className="text-red-500 text-xs mb-3">
-              {errors.phone}
-            </p>
-          )}
+          <div className="rounded-[28px] border border-gray-200 bg-slate-50 p-2 mx-6 mb-2">
+            <div className="flex items-center justify-center mb-1 gap-2">
+              <div className="text-right">
+                <p className="text-xs text-gray-500 line-through font-bold">₹{plan.oldPrice}</p>
+              </div>
+              <div>
+                <p className="text-[10px] font-bold uppercase  text-white bg-[#3d1a5e] rounded-full px-2 py-1 inline-block">
+                  {plan.discount}
+                </p>
+              </div>
+              
+            </div>
 
-          <div className="space-y-3 mb-6">
-            {PLANS.map((p) => (
-              <button
-                key={p.id}
-                onClick={() => setSelectedPlan(p.id)}
-                className={`w-full text-left p-4 rounded-xl border-2 ${
-                  selectedPlan === p.id
-                    ? 'border-[#3d1a5e] bg-purple-50'
-                    : 'border-gray-200'
-                }`}
-              >
-                <div className="flex justify-between">
-                  <span>{p.label}</span>
-                  <b>₹{p.price}</b>
+            <div className="text-center mb-1">
+              <p className="text-3xl md:text-4xl font-extrabold tracking-tight">
+                ₹{plan.price}
+              </p>
+              <p className="text-sm text-gray-500 mt-1">
+                One-Time Payment
+              </p>
+            </div>
+
+            <div className="space-y-1 flex flex-col justify-center">
+              {plan.features.map((feature) => (
+                <div key={feature} className="flex gap-2 items-center">
+                  <span className="mt-1 h-5 w-5 rounded-full bg-[#3d1a5e] text-white flex items-center justify-center text-xs">
+                    ✓
+                  </span>
+                  <p className="text-sm text-gray-700">{feature}</p>
                 </div>
-              </button>
-            ))}
+              ))}
+            </div>
           </div>
 
-          <div className="flex justify-between mb-5 font-bold">
-            <span>Total</span>
-            <span>₹{plan.price}</span>
-          </div>
 
-          <button
-            onClick={handlePayment}
-            disabled={loading}
-            className="w-full bg-[#3d1a5e] text-white py-4 rounded-full font-bold"
-          >
-            {loading ? 'Processing...' : 'Proceed to Payment'}
-          </button>
+          <div className="px-6">
+           
+            <input
+              type="email"
+              placeholder="Email Address"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
+              className="w-full border rounded-xl px-4 py-3 mb-2 "
+            />
+
+            {errors.email && (
+              <p className="text-red-500 text-xs mb-3">
+                {errors.email}
+              </p>
+            )}
+
+            <div className="flex border rounded-xl mb-2">
+              <span className="px-3 py-3 bg-gray-50 rounded-xl">+91</span>
+
+              <input
+                type="tel"
+                maxLength={10}
+                value={phone}
+                onChange={(e) =>
+                  setPhone(e.target.value.replace(/\D/g, ''))
+                }
+                placeholder="Phone Number (Optional)"
+                className="flex-1 px-3 rounded-xl"
+              />
+            </div>
+
+            {errors.phone && (
+              <p className="text-red-500 text-xs mb-3">
+                {errors.phone}
+              </p>
+            )}
+
+            <div className="flex items-center justify-between mb-2 md:mb-4 font-bold text-gray-700">
+              <span>Total</span>
+              <span>₹{plan.price}</span>
+            </div>
+
+            <button
+              onClick={handlePayment}
+              disabled={loading}
+              className="w-full bg-[#3d1a5e] text-white py-4 rounded-full font-bold"
+            >
+              {loading ? 'Processing...' : 'Pay ₹99'}
+            </button>
+
+            <div className="mt-2 rounded-3xl border border-gray-200 bg-white p-2 shadow-sm flex items-center gap-4 md:mb-4">
+              <div className="flex h-8 w-8 items-center justify-center rounded-2xl bg-green-100 text-green-700">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  className="h-6 w-6"
+                >
+                  <path d="M12 22s8-4 8-10V6l-8-4-8 4v6c0 6 8 10 8 10z" />
+                  <path d="M9.5 11.5l1.75 1.75L15.5 9" />
+                </svg>
+              </div>
+              <div>
+                <p className="text-[12px] font-semibold text-green-900">
+                  100% Safe & Secure Checkout
+                </p>
+                <p className="text-[10px] md:text-[12px] text-gray-500">
+                  Your information is encrypted and safe.
+                </p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -337,15 +369,14 @@ export default function PurchaseModal({ isOpen, onClose }) {
 
           <div className="relative w-full max-w-md bg-white rounded-2xl shadow-2xl p-8 text-center animate-in fade-in zoom-in duration-300">
             <div
-              className={`mx-auto mb-5 flex items-center justify-center w-16 h-16 rounded-full ${
-                statusModal.type === 'success'
-                  ? 'bg-green-100'
-                  : 'bg-red-100'
-              }`}
+              className={`mx-auto mb-5 flex items-center justify-center w-16 h-16 rounded-full ${statusModal.type === 'success'
+                ? 'bg-green-100'
+                : 'bg-red-100'
+                }`}
             >
               {statusModal.type === 'success' ? (
                 <svg
-                  className="w-8 h-8 text-green-600"
+                  className=" w-4 h-4 md:w-8 md:h-8 text-green-600"
                   fill="none"
                   stroke="currentColor"
                   strokeWidth="2"
@@ -381,11 +412,10 @@ export default function PurchaseModal({ isOpen, onClose }) {
                   open: false,
                 }))
               }
-              className={`w-full py-3 rounded-full font-semibold ${
-                statusModal.type === 'success'
-                  ? 'bg-green-600 text-white'
-                  : 'bg-[#3d1a5e] text-white'
-              }`}
+              className={`w-full py-3 rounded-full font-semibold ${statusModal.type === 'success'
+                ? 'bg-green-600 text-white'
+                : 'bg-[#3d1a5e] text-white'
+                }`}
             >
               Continue
             </button>

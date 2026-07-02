@@ -13,10 +13,10 @@ export default function HeroSection({ onOpenModal }) {
   return (
     <section className="pt-20 pb-0 bg-gradient-to-b from-[#fdf6fb] to-white min-h-screen flex flex-col items-center justify-start">
       {/* Top badge */}
-      <div className="mt-10 mb-6 flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-4 py-2 rounded-full shadow-sm">
+      {/* <div className="mt-10 mb-6 flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-4 py-2 rounded-full shadow-sm">
         <span className="w-2 h-2 rounded-full bg-pink-400 animate-pulse inline-block"></span>
         Designed with love by RoutineOS · One-time purchase · No subscriptions
-      </div>
+      </div> */}
 
       {/* Headline */}
       <div className="text-center px-4 mb-8 max-w-3xl">
@@ -53,9 +53,9 @@ export default function HeroSection({ onOpenModal }) {
       <div className="relative w-full max-w-5xl mx-auto px-4">
         <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white">
           {/* Re-use badge */}
-          <div className="absolute top-4 right-4 z-10 bg-white rounded-full shadow-md px-3 py-1.5 text-[10px] font-semibold text-gray-700 border border-gray-200">
+          {/* <div className="absolute top-4 right-4 z-10 bg-white rounded-full shadow-md px-3 py-1.5 text-[10px] font-semibold text-gray-700 border border-gray-200">
             🔄 RE-USE<br/>YEAR &amp; YEAR
-          </div>
+          </div> */}
           <video
             ref={videoRef}
             src="/habit-tracker.mp4"

@@ -5,19 +5,51 @@ export default function FloatingDownloadButton({ onOpenModal }) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
+    const targetIds = ['hero-download-btn', 'download-button-cta', 'footer']
+
+    const getTargets = () =>
+      targetIds
+        .map((id) => document.getElementById(id))
+        .filter(Boolean)
+
+    const updateVisibility = () => {
+      const targets = getTargets()
+
+      if (targets.length === 0) {
+        setVisible(true)
+        return
+      }
+
+      const viewportHeight = window.innerHeight || document.documentElement.clientHeight
+      const viewportWidth = window.innerWidth || document.documentElement.clientWidth
+
+      const anyTargetVisible = targets.some((target) => {
+        const rect = target.getBoundingClientRect()
+        return rect.top < viewportHeight && rect.bottom > 0 && rect.left < viewportWidth && rect.right > 0
+      })
+
+      setVisible(!anyTargetVisible)
+    }
+
+    updateVisibility()
+
+    window.addEventListener('scroll', updateVisibility, { passive: true })
+    window.addEventListener('resize', updateVisibility)
+
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        // Show floating button when hero download button is NOT visible
-        setVisible(!entry.isIntersecting)
+      (entries) => {
+        const anyTargetVisible = entries.some((entry) => entry.isIntersecting)
+        setVisible(!anyTargetVisible)
       },
       { threshold: 0.1 }
     )
 
-    const target = document.getElementById('hero-download-btn')
-    if (target) observer.observe(target)
+    getTargets().forEach((target) => observer.observe(target))
 
     return () => {
-      if (target) observer.unobserve(target)
+      observer.disconnect()
+      window.removeEventListener('scroll', updateVisibility)
+      window.removeEventListener('resize', updateVisibility)
     }
   }, [])
 

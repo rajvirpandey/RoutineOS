@@ -25,7 +25,7 @@ export default function TestimonialsSection() {
       <div className="max-w-5xl mx-auto px-4 text-center">
         <p className="text-xs font-semibold uppercase tracking-widest text-pink-400 mb-3">What our users say</p>
         <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-12">
-          Loved by 25,000+ people worldwide
+          Loved by 2500+ people worldwide
         </h2>
 
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">

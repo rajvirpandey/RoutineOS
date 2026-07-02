@@ -12,6 +12,7 @@ import FaqSection from '../components/FaqSection'
 import Footer from '../components/Footer'
 import FloatingDownloadButton from '../components/FloatingDownloadButton'
 import PurchaseModal from '../components/PurchaseModal'
+import FeaturesSectionTwo from '../components/FeaturesSectionTwo'
 
 export default function Home() {
   const [modalOpen, setModalOpen] = useState(false)
@@ -24,10 +25,11 @@ export default function Home() {
       <HeroSection onOpenModal={() => setModalOpen(true)} />
       <ProblemSection />
       <FeaturesSection />
+      <CtaSection onOpenModal={() => setModalOpen(true)} />
+      <FeaturesSectionTwo />
       <DashboardPreview />
       <EverythingSection />
       <TestimonialsSection />
-      <CtaSection onOpenModal={() => setModalOpen(true)} />
       <FaqSection />
       <Footer />
     </main>
