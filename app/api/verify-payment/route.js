@@ -4,59 +4,7 @@ import { Resend } from 'resend'
 export const runtime = 'nodejs'
 
 const PRODUCTS = {
-  '1month': {
-    label: '1 Month Access',
-    amount: 39,
-    links: [
-      {
-        label: 'Download Excel Habit Tracker',
-        env: 'EXCEL_HABIT_TRACKER_DOWNLOAD_URL'
-      },
-      {
-        label: 'Download PDF Habit Tracker',
-        env: 'PDF_HABIT_TRACKER_DOWNLOAD_URL'
-      },
-      {
-        label: 'Download Excel Goal Planner',
-        env: 'EXEL_GOAL_PLANNER_DOWNLOAD_URL'
-      },
-      {
-        label: 'Download Excel Weight Loss Tracker',
-        env: 'EXCEL_WEIGHT_LOSS_TRACKER_DOWNLOAD_URL'
-      },
-      {
-        label: 'Download PDF Weight Loss Tracker',
-        env: 'PDF_WEIGHT_LOSS_TRACKER_DOWNLOAD_URL'
-      }
-],
-  },
-  '6months': {
-    label: '6 Months Access',
-    amount: 99,
-    links: [
-  {
-    label: 'Download Excel Habit Tracker',
-    env: 'EXCEL_HABIT_TRACKER_DOWNLOAD_URL'
-  },
-  {
-    label: 'Download PDF Habit Tracker',
-    env: 'PDF_HABIT_TRACKER_DOWNLOAD_URL'
-  },
-  {
-    label: 'Download Excel Goal Planner',
-    env: 'EXEL_GOAL_PLANNER_DOWNLOAD_URL'
-  },
-  {
-    label: 'Download Excel Weight Loss Tracker',
-    env: 'EXCEL_WEIGHT_LOSS_TRACKER_DOWNLOAD_URL'
-  },
-  {
-    label: 'Download PDF Weight Loss Tracker',
-    env: 'PDF_WEIGHT_LOSS_TRACKER_DOWNLOAD_URL'
-  }
-],
-  },
-  lifetime: {
+  'lifetime': {
     label: 'Lifetime Access',
     amount: 149,
     links: [
