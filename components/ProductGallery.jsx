@@ -16,7 +16,7 @@ export default function ProductGallery() {
   const [selectedImage, setSelectedImage] = useState(images[0]);
 
   return (
-    <section className="w-full max-w-7xl mx-auto px-4 py-8">
+    <section className="w-full max-w-7xl mx-auto px-4 py-2">
       
       {/* Desktop View */}
       <div className="hidden md:grid grid-cols-3 gap-8">

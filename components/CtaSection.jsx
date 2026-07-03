@@ -1,6 +1,6 @@
 export default function CtaSection({ onOpenModal }) {
   return (
-    <section className="py-24 bg-gradient-to-b from-[#fdf6fb] to-white">
+    <section className=" py-2 md:py-8 bg-gradient-to-b from-[#fdf6fb] to-white">
       <div className="max-w-2xl mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-5xl font-display font-bold text-gray-900 mb-4">
           Ready to stay{' '}

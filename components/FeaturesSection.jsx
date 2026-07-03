@@ -30,7 +30,7 @@ export default function FeaturesSection() {
   const [active, setActive] = useState(0)
 
   return (
-    <section className="py-20 bg-[#fdf6fb]">
+    <section className="py-4 bg-[#fdf6fb]">
       <div className="max-w-5xl mx-auto px-4 text-center">
         <p className="text-xs font-semibold uppercase tracking-widest text-pink-400 mb-3">Here's how</p>
         <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">

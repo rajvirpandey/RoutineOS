@@ -6,7 +6,7 @@ const problems = [
 
 export default function ProblemSection() {
   return (
-    <section className="py-20 bg-white">
+    <section className="py-8 bg-white">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-4">
           Why staying consistent feels impossible?

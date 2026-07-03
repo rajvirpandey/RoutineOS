@@ -32,7 +32,7 @@ export default function FaqSection() {
   const [open, setOpen] = useState(null)
 
   return (
-    <section className="py-20 bg-white">
+    <section className="py-4 bg-white">
       <div className="max-w-2xl mx-auto px-4">
         <h2 className="text-3xl font-display font-bold text-gray-900 text-center mb-10">
           Frequently Asked Questions

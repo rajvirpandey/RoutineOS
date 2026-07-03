@@ -6,7 +6,7 @@ export default function HeroSection({ onOpenModal }) {
 
   useEffect(() => {
     if (videoRef.current) {
-      videoRef.current.play().catch(() => {})
+      videoRef.current.play().catch(() => { })
     }
   }, [])
 
@@ -63,21 +63,20 @@ export default function HeroSection({ onOpenModal }) {
             loop
             muted
             playsInline
-            className="w-full object-cover"
-            style={{ maxHeight: '520px' }}
+            className="w-full h-auto object-cover"
           />
         </div>
 
         {/* Rating pill */}
-        <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-full px-6 py-2.5 shadow-lg flex items-center gap-3 text-sm">
+        <div className="absolute -bottom-5 left-1/2 -translate-x-1/2 bg-white border border-gray-200 rounded-full px-6 py-2 shadow-lg flex items-center gap-3 text-sm w-[350px]">
           <span className="text-yellow-400 text-base">★★★★★</span>
           <span className="font-semibold text-gray-800">4.9</span>
           <span className="text-gray-400">·</span>
-          <span className="text-gray-600">25,000+ happy customers</span>
+          <span className="text-gray-600">2500+ happy customers</span>
         </div>
       </div>
 
-      <div className="h-16" />
+      {/* <div className="h-16" /> */}
     </section>
   )
 }

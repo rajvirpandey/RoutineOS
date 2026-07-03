@@ -10,7 +10,7 @@ const features = [
 
 export default function EverythingSection() {
   return (
-    <section className="py-20 bg-[#fdf6fb]">
+    <section className="py-4 bg-[#fdf6fb]">
       <div className="max-w-3xl mx-auto px-4 text-center">
         <h2 className="text-3xl sm:text-4xl font-display font-bold text-gray-900 mb-3">
           Everything you need to
