@@ -2,7 +2,7 @@ import Script from 'next/script'
 import './globals.css'
 
 export const metadata = {
-  title: 'RoutineOS – Habit Tracker',
+  title: 'OSroutine – Habit Tracker',
   description: 'Turn your life into a game. A simple habit tracker that helps you stay consistent and see real progress.',
 }
 
@@ -37,6 +37,7 @@ export default function RootLayout({ children }) {
 
             fbq('init', '1728681798314333');
             fbq('track', 'PageView');
+            fbq('track', 'Purchase', {value: 99, currency: 'INR'});
           `}
         </Script>
 

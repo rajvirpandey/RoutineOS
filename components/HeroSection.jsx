@@ -15,7 +15,7 @@ export default function HeroSection({ onOpenModal }) {
       {/* Top badge */}
       {/* <div className="mt-10 mb-6 flex items-center gap-2 text-xs text-gray-500 bg-white border border-gray-200 px-4 py-2 rounded-full shadow-sm">
         <span className="w-2 h-2 rounded-full bg-pink-400 animate-pulse inline-block"></span>
-        Designed with love by RoutineOS · One-time purchase · No subscriptions
+        Designed with love by OSroutine · One-time purchase · No subscriptions
       </div> */}
 
       {/* Headline */}

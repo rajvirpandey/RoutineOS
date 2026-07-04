@@ -1,4 +1,4 @@
-# RoutineOS – Habit Tracker Landing Page
+# OSroutine – Habit Tracker Landing Page
 
 A Next.js 14 + Tailwind CSS marketing landing page for a habit tracking spreadsheet product, with Razorpay payment integration.
 
@@ -109,4 +109,4 @@ npm run build
 
 ## License
 
-MIT © 2024 RoutineOS
+MIT © 2024 OSroutine

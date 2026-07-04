@@ -105,7 +105,7 @@ export default function PurchaseModal({ isOpen, onClose }) {
         key: order.keyId,
         amount: order.amount,
         currency: 'INR',
-        name: 'RoutineOS',
+        name: 'OSroutine',
         description: plan.description,
         order_id: order.id,
         image: '/favicon.ico',

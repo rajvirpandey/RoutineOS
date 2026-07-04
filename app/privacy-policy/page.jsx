@@ -2,8 +2,8 @@ import Link from 'next/link'
 import Footer from '../../components/Footer'
 
 export const metadata = {
-  title: 'Privacy Policy – RoutineOS',
-  description: 'How RoutineOS collects, uses, and protects your information.',
+  title: 'Privacy Policy – OSroutine',
+  description: 'How OSroutine collects, uses, and protects your information.',
 }
 
 export default function PrivacyPolicy() {

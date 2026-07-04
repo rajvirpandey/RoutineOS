@@ -32,7 +32,7 @@ export async function POST(request) {
       body: JSON.stringify({
         amount: amount * 100,
         currency: 'INR',
-        receipt: `routineos_${Date.now()}`,
+        receipt: `OSroutine_${Date.now()}`,
         notes: { plan, email },
       }),
       cache: 'no-store',
