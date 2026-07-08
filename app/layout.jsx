@@ -13,10 +13,6 @@ export default function RootLayout({ children }) {
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
         <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400;1,700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
-        
-      </head>
-      <body>{children}
-        {/* Meta Pixel */}
         <Script id="meta-pixel" strategy="afterInteractive">
           {`
             !function(f,b,e,v,n,t,s)
@@ -35,9 +31,9 @@ export default function RootLayout({ children }) {
             }(window, document,'script',
             'https://connect.facebook.net/en_US/fbevents.js');
 
-            fbq('init', '1728681798314333');
+            fbq('init', '1373394738051856');
             fbq('track', 'PageView');
-            fbq('track', 'Purchase', {value: 99, currency: 'INR'});
+            
           `}
         </Script>
 
@@ -50,6 +46,10 @@ export default function RootLayout({ children }) {
             alt=""
           />
         </noscript>
+      </head>
+      <body>{children}
+        {/* Meta Pixel */}
+
       </body>
     </html>
   )

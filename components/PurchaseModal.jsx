@@ -154,6 +154,8 @@ export default function PurchaseModal({ isOpen, onClose }) {
           }
 
           if (result.success) {
+            fbq('track', 'Purchase', {value: 99, currency: 'INR'})
+
             showStatus(
               'success',
               'Payment Successful 🎉',
